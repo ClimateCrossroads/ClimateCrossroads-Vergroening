@@ -145,7 +145,7 @@ body.best{background-color: rgba(0,255,0,0.8);}
 }
 
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">//config.history.controls = false;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">config.history.controls = false;
 
 (function () {
     // v1.1.1
@@ -260,7 +260,7 @@ class JavascriptDataDownloader {
         a.href = URL.createObjectURL(new Blob([JSON.stringify(this.data, null, 2)], {
             type: type_of
         }));
-				const filename = "data_" + this.data.UserID + ".txt";
+				const filename = "data/data_" + this.data.UserID + ".txt";
         a.setAttribute("download", filename);
         body.appendChild(a);
         a.click();
@@ -379,7 +379,7 @@ De volgende ochtend is het weer hard aan het regenen. Je ziet dat het water van 
 [[Ga naar beneden.|Huis6]]
 &lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="Huis9" tags="" position="1900,1013" size="100,100">Dit is het einde. Speel het spel nog een keer om een lagere temperatuur te krijgen.
 
-Als je op de volgende knop drukt, worden je gemaakte keuzes opgeslagen. Je username zal niet worden opgeslagen. De UserID wordt gebruikt om de vragenlijst en de gemaakte keuzes te combineren.
+Als je op de volgende knop drukt, worden je gemaakte keuzes opgeslagen. Je username zal niet worden opgeslagen. &lt;&lt;if 1==0&gt;&gt;De UserID wordt gebruikt om de vragenlijst en de gemaakte keuzes te combineren.&lt;&lt;/if&gt;&gt;
 &lt;&lt;button [[Sla keuzes op.|Einde]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 
 </tw-passagedata><tw-passagedata pid="17" name="Huis6" tags="" position="974,1377" size="100,100">&lt;&lt;if $personal is true&gt;&gt;&lt;&lt;set $park to &quot;Kronerburgerpark&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $park to &quot;park&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;\
@@ -417,9 +417,7 @@ Je wordt gebeld door een van je &lt;&lt;linkappend &quot;vrienden.&quot;&gt;&gt;
 &lt;&lt;timed 1500ms&gt;&gt;&lt;&lt;if $hulp_buurvrouw is true&gt;&gt; Je bedankt de burvrouw voor de hulp.&lt;&lt;/if&gt;&gt; Je bent blij met je nieuwe tuin. [[Ga naar binnen.|Huis4][$temperatuur to $temperatuur + $d_temp*10 - 0.1*$soorten]]&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;link &quot;Plant ze waar nu een tegel ligt.&quot;&gt;&gt;&lt;&lt;replace &quot;#zaadjes&quot;&gt;&gt;&lt;&lt;set $temperatuur to $temperatuur -0.2&gt;&gt;&lt;&lt;set $data_zaadjes to &quot;tegel&quot;&gt;&gt;Je hebt een tegel eruit gehaald en de zaadjes geplant.
 &lt;&lt;timed 1500ms&gt;&gt;&lt;&lt;if $hulp_buurvrouw is true&gt;&gt; Je bedankt de buurvrouw voor de hulp.&lt;&lt;/if&gt;&gt; Je bent blij met je nieuwe tuin. [[Ga naar binnen.|Huis4][$temperatuur to $temperatuur + $d_temp - 0.1*$soorten]]&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/div&gt;
-&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Winkel1" tags="" position="54,1226" size="100,100">&lt;&lt;set $d_temp to 0&gt;&gt;Ga je met de [[auto|Winkel2][$temperatuur to $temperatuur + 1.5; $max_plants to 15; $bomen to true;$data_vervoer1 to &quot;auto&quot;]] of [[fiets?|Winkel2][$max_plants to 8; $bomen to false;$data_vervoer1 to &quot;fiets&quot;;$data_MW to false;$vraag is &quot;&quot;]]</tw-passagedata><tw-passagedata pid="26" name="Winkel2" tags="" position="54,1376" size="100,100">$data_struik
-
-&lt;&lt;if $max_plants == 0&gt;&gt;Je hebt geen plek meer over. [[Ga naar huis|Huis2]]&lt;&lt;else&gt;&gt;&lt;&lt;if previous() is &quot;Winkel1&quot;&gt;&gt;Je komt aan in de &lt;&lt;if $personal is true&gt;&gt;Intratuin Malden&lt;&lt;else&gt;&gt;tuinwinkel&lt;&lt;/if&gt;&gt;. &lt;&lt;set $max to $max_plants&gt;&gt;&lt;&lt;elseif previous() is not &quot;Winkel3&quot;&gt;&gt;&lt;&lt;set $groene_tuin to true&gt;&gt;&lt;&lt;/if&gt;&gt;Wat ga je doen?
+&lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Winkel1" tags="" position="54,1226" size="100,100">&lt;&lt;set $d_temp to 0&gt;&gt;Ga je met de [[auto|Winkel2][$temperatuur to $temperatuur + 1.5; $max_plants to 15; $bomen to true;$data_vervoer1 to &quot;auto&quot;]] of [[fiets?|Winkel2][$max_plants to 8; $bomen to false;$data_vervoer1 to &quot;fiets&quot;;$data_MW to false;$vraag is &quot;&quot;]]</tw-passagedata><tw-passagedata pid="26" name="Winkel2" tags="" position="54,1376" size="100,100">&lt;&lt;if $max_plants == 0&gt;&gt;Je hebt geen plek meer over. [[Ga naar huis|Huis2]]&lt;&lt;else&gt;&gt;&lt;&lt;if previous() is &quot;Winkel1&quot;&gt;&gt;Je komt aan in de &lt;&lt;if $personal is true&gt;&gt;Intratuin Malden&lt;&lt;else&gt;&gt;tuinwinkel&lt;&lt;/if&gt;&gt;. &lt;&lt;set $max to $max_plants&gt;&gt;&lt;&lt;elseif previous() is not &quot;Winkel3&quot;&gt;&gt;&lt;&lt;set $groene_tuin to true&gt;&gt;&lt;&lt;/if&gt;&gt;Wat ga je doen?
 [[Ga naar de bomen|WinkelBoom]] 
 [[Ga naar de middelgrote planten|WinkelStruik]] 
 [[Ga naar de kleine planten|WinkelBloem]] 
@@ -447,16 +445,17 @@ Je wordt gebeld door een van je &lt;&lt;linkappend &quot;vrienden.&quot;&gt;&gt;
 &lt;&lt;if visited(&quot;Exotisch&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo&quot; src=&quot;https://kopenenklussen.nl/wp-content/uploads/2019/10/Tuincentrum.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;Mix&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#mix&quot; src=&quot;https://cdn.decarlton.nl/files/images/planten%20tuincentrum%20de%20Carlton%20nabij%20Den%20Haag.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;
 
-[[Terug.|Winkel2]]</tw-passagedata><tw-passagedata pid="29" name="Winkel3" tags="" position="240,1526" size="100,100">&lt;div id=&quot;medewerker&quot;&gt;
+[[Terug.|Winkel2]]</tw-passagedata><tw-passagedata pid="29" name="Winkel3" tags="" position="240,1526" size="100,100">$vraag
+&lt;div id=&quot;medewerker&quot;&gt;
 Wat wil je vragen aan de medewerker?
-&lt;&lt;if $vraag is not &quot;Klimaat&quot;&gt;&gt;&lt;&lt;link &quot;Welke planten zijn het best voor het klimaat?&quot;&gt;&gt;&lt;&lt;set $vraag to &quot;Klimaat&quot;&gt;&gt;
+&lt;&lt;if $vraag is not &quot;Insect&quot;&gt;&gt;&lt;&lt;link &quot;Welke planten zijn het best voor het klimaat?&quot;&gt;&gt;
 	&lt;&lt;replace &quot;#medewerker&quot;&gt;&gt;&lt;&lt;say $username $pfp&gt;&gt;Welke planten zijn het best voor het klimaat?&lt;&lt;/say&gt;&gt;&lt;&lt;timed 1000ms&gt;&gt;&lt;&lt;medewerker&gt;&gt;Vooral bomen zijn goed voor het klimaat. Ook is het beter om inheemse planten te kopen.&lt;&lt;/medewerker&gt;&gt;
-	Je bedankt de mederwerker en [[gaat terug.|Winkel2]]&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	Je bedankt de mederwerker.&lt;&lt;if $vraag is &quot;Klimaat&quot;&gt;&gt; [[Ga terug.|Winkel2]]&lt;&lt;else&gt;&gt;&lt;&lt;set $vraag to &quot;Insect&quot;&gt;&gt; Wil je nog een [[vraag stellen|Winkel3]] of [[ga je terug?|Winkel2]]&lt;&lt;/if&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt; &lt;&lt;/if&gt;&gt;
-&lt;&lt;if $vraag is not &quot;Insect&quot;&gt;&gt;&lt;&lt;link &quot;Welke planten zijn het best voor insecten?&quot;&gt;&gt;&lt;&lt;set $vraag to &quot;Insect&quot;&gt;&gt;
+&lt;&lt;if $vraag is not &quot;Klimaat&quot;&gt;&gt;&lt;&lt;link &quot;Welke planten zijn het best voor insecten?&quot;&gt;&gt;&lt;&lt;set $vraag to &quot;Insect&quot;&gt;&gt;
 	&lt;&lt;replace &quot;#medewerker&quot;&gt;&gt;&lt;&lt;say $username $pfp&gt;&gt;Welke planten zijn het best voor insecten?&lt;&lt;/say&gt;&gt;
 	&lt;&lt;timed 1000ms&gt;&gt;&lt;&lt;medewerker&gt;&gt;Het is belangrijker om diverse planten te hebben. Verder is wat onkruid ook goed voor insecten. En als je genoeg ruimte hebt, raad ik een bijenhotel aan.&lt;&lt;/medewerker&gt;&gt;
-	Je bedankt de mederwerker en [[gaat terug.|Winkel2]]&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;
+	Je bedankt de mederwerker.&lt;&lt;if $vraag is &quot;Insect&quot;&gt;&gt; [[Ga terug.|Winkel2]]&lt;&lt;else&gt;&gt;&lt;&lt;set $vraag to &quot;Klimaat&quot;&gt;&gt; Wil je nog een [[vraag stellen|Winkel3]] of [[ga je terug?|Winkel2]]&lt;&lt;/if&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="30" name="WinkelBoom" tags="" position="367,1524" size="100,100">&lt;&lt;if $bomen is false&gt;&gt;Op de fiets kan je geen boom meenemen.&lt;&lt;else&gt;&gt;Welke bomen wil je kopen?
 &lt;map name=&quot;inh&quot;&gt;&lt;area data-passage=&quot;InheemsBoom&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
@@ -472,9 +471,9 @@ Wat wil je vragen aan de medewerker?
 &lt;map name=&quot;lamp&quot;&gt;&lt;area data-passage=&quot;Lamp&quot; shape=&quot;rect&quot; coords=&quot;0,0,300,300&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;vogel&quot;&gt;&lt;area data-passage=&quot;Vogelhuisje&quot; shape=&quot;rect&quot; coords=&quot;0,0,300,300&quot;&gt;&lt;/map&gt;\
 
-&lt;img usemap=&quot;#bij&quot; src=&quot;https://bijenhotelkopen.nl/wp-content/uploads/2018/10/BeeLittle03.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;\
-&lt;img usemap=&quot;#lamp&quot; src=&quot;https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSUZA_L5qYYXX2h-MCgtMsWdlHP_9TjTQwFm7hPbLnF-6J6yf8elhZxYGnJmAKiMcv2aoRXlqdD3HPHpSTKKHAuRtUra4iEtWUivEfVk9Za&amp;usqp=CAE&quot; alt=&quot;350 x 150 pic&quot; width=&quot;260&quot;&gt;\
-&lt;img usemap=&quot;#vogel&quot; src=&quot;https://www.vivara.nl/media/catalog/product/cache/311912fdf1fa44d9975f669df1268bd6/9/0/90512-1.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;
+&lt;&lt;if visited(&quot;Bijenhotel&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#bij&quot; src=&quot;https://bijenhotelkopen.nl/wp-content/uploads/2018/10/BeeLittle03.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if visited(&quot;Lamp&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#lamp&quot; src=&quot;https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSUZA_L5qYYXX2h-MCgtMsWdlHP_9TjTQwFm7hPbLnF-6J6yf8elhZxYGnJmAKiMcv2aoRXlqdD3HPHpSTKKHAuRtUra4iEtWUivEfVk9Za&amp;usqp=CAE&quot; alt=&quot;350 x 150 pic&quot; width=&quot;260&quot;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if visited(&quot;Vogelhuisje&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#vogel&quot; src=&quot;https://www.vivara.nl/media/catalog/product/cache/311912fdf1fa44d9975f669df1268bd6/9/0/90512-1.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;
 
 [[Terug.|Winkel2]]</tw-passagedata><tw-passagedata pid="32" name="Inheems" tags="" position="124,1636" size="100,100">&lt;&lt;set $data_bloem to $data_bloem.concat(&quot;inheems&quot;)&gt;&gt;\
 &lt;div id=&quot;plantjes&quot;&gt;Hoeveel planten wil je van deze soort bestellen?
@@ -734,7 +733,7 @@ Jullie gaan aan tafel zitten. Je vraagt je af waarom haar tuin koeler is en bete
 
 &lt;&lt;actions [[Je doet boodschappen met je vrienden|Park1][$boodschappen to true;$data_BS to true]] [[Je kijkt wat je in huis hebt|Eten2][$nr_eten to 0; $boodschappen to false;$data_BS to false]]&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Eten2" tags="" position="1098,1077" size="100,100">&lt;&lt;if $nr_eten == 2&gt;&gt;Je vult je fles water en dan zit je tas vol.&lt;&lt;if visited(&quot;Koelkast&quot;)==0&gt;&gt;&lt;&lt;set $temperatuur to $temperatuur + 0.4&gt;&gt;&lt;&lt;set $data_KK to false&gt;&gt;&lt;&lt;/if&gt;&gt; [[Ga naar het park|Park1]]&lt;&lt;else&gt;&gt;Je loopt naar de keuken. Wat doe je?
 &lt;&lt;actions [[Kijk in je fruitschaal.|Fruit][$nr_eten to $nr_eten + 1]] [[Kijk in je koelkast.|Koelkast][$nr_eten to $nr_eten + 1;$data_KK to true]] [[Kijk naar je brood.|Brood][$nr_eten to $nr_eten + 1]]&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if $nr_eten == 1&gt;&gt;[[Ga naar het park|Park1]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="Fruit" tags="" position="1103,1210" size="100,100">Je doet appels en druiven in je tas. [[Ga verder.|Eten2]]</tw-passagedata><tw-passagedata pid="49" name="Koelkast" tags="" position="1284,1082" size="100,100">Je hebt een salade die vandaag over de datum gaat. Je neemt de salade mee. [[Ga verder.|Eten2]]</tw-passagedata><tw-passagedata pid="50" name="Brood" tags="" position="1249,1229" size="100,100">Je neemt een half brood en een pot pindakaas mee. [[Ga verder.|Eten2]]</tw-passagedata><tw-passagedata pid="51" name="Park2" tags="" position="1407,475" size="100,100">&lt;&lt;if $personal is true&gt;&gt;&lt;img usemap=&quot;#primary&quot; src=&quot;https://ronaldpuma.files.wordpress.com/2012/03/pic_0001-kronenburgerpark.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;500&quot;&gt;&lt;&lt;else&gt;&gt;&lt;img usemap=&quot;#primary&quot; src=&quot;https://media.indebuurt.nl/breda/2019/09/05191616/park-8-e1568725581473.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;500&quot;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $nr_eten == 1&gt;&gt;[[Ga naar het park|Park1]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="48" name="Fruit" tags="" position="1103,1210" size="100,100">Je doet appels en druiven in je tas. [[Ga verder.|Eten2][$snack to true]]</tw-passagedata><tw-passagedata pid="49" name="Koelkast" tags="" position="1284,1082" size="100,100">Je hebt een salade die vandaag over de datum gaat. Je neemt de salade mee. [[Ga verder.|Eten2]]</tw-passagedata><tw-passagedata pid="50" name="Brood" tags="" position="1249,1229" size="100,100">Je neemt een half brood en een pot pindakaas mee. [[Ga verder.|Eten2]]</tw-passagedata><tw-passagedata pid="51" name="Park2" tags="" position="1407,475" size="100,100">&lt;&lt;if $personal is true&gt;&gt;&lt;img usemap=&quot;#primary&quot; src=&quot;https://ronaldpuma.files.wordpress.com/2012/03/pic_0001-kronenburgerpark.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;500&quot;&gt;&lt;&lt;else&gt;&gt;&lt;img usemap=&quot;#primary&quot; src=&quot;https://media.indebuurt.nl/breda/2019/09/05191616/park-8-e1568725581473.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;500&quot;&gt;&lt;&lt;/if&gt;&gt;
 \
 
 &lt;&lt;if $boodschappen is true&gt;&gt;&lt;&lt;set $temperatuur to $temperatuur + $voedsel_temp&gt;&gt;Na het boodschappen doen ga je&lt;&lt;else&gt;&gt;Je gaat&lt;&lt;/if&gt;&gt; met je vrienden in het $park zitten. Jullie delen het eten wat jullie hebben &lt;&lt;linkappend &quot;meegenomen.&quot;&gt;&gt;
@@ -752,7 +751,7 @@ Voordat je naar het park gaat, doe je eerst nog &lt;&lt;linkappend &quot;boodsch
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="53" name="Supermarkt" tags="" position="957,661" size="100,100">Je budget is €$budget. &lt;&lt;set $voedsel_temp to 1&gt;&gt;&lt;&lt;set $data_SM to &quot;AH&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="53" name="Supermarkt" tags="" position="957,661" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0. &lt;&lt;set $voedsel_temp to 1&gt;&gt;&lt;&lt;set $data_SM to &quot;AH&quot;&gt;&gt;
 Welk brood wil je?
 &lt;a data-passage=&quot;Drinken2&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.1&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239383239353737?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.50
@@ -760,7 +759,7 @@ Welk brood wil je?
 &lt;/a&gt;€1.00
 &lt;a data-passage=&quot;Beleg2&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp - 0.2&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545236363939383730?revLabel=2&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.00
-</tw-passagedata><tw-passagedata pid="54" name="Ekoplaza" tags="" position="1080,663" size="100,100">Je budget is €$budget. &lt;&lt;set $voedsel_temp to 0.5&gt;&gt;&lt;&lt;set $data_SM to &quot;Ekoplaza&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="54" name="Ekoplaza" tags="" position="1080,663" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0. &lt;&lt;set $voedsel_temp to 0.5&gt;&gt;&lt;&lt;set $data_SM to &quot;Ekoplaza&quot;&gt;&gt;
 Welk brood wil je?
 &lt;a data-passage=&quot;Drinken&quot; data-setter=&quot;$budget to $budget - 3;$voedsel_temp to $voedsel_temp + 0.1&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/8bcdce81-485d-483a-b0ce-9e1718d8b4a2.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€3.00
@@ -772,34 +771,37 @@ Welk brood wil je?
 &lt;img src=&quot;https://pubblestorage.blob.core.windows.net/96897487/content/2020/5/7d32b8a5-9dc8-45a5-ad88-4fedd1977f11_thumb840.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;400&quot;&gt;
 De prullenbak zit vol. Je kijkt rond en ziet dat de andere prullenbakken ook vol zitten. &lt;&lt;if $plastic_mee is true&gt;&gt;&lt;&lt;actions [[Leg het afval naast de prullenbak|Huis8][$temperatuur to $temperatuur - 0.5]] [[Neem het afval mee naar huis|Huis8][$afval_bij to true;$data_plastic to &quot;huis&quot;]]&gt;&gt;&lt;&lt;else&gt;&gt;Je hebt geen plek op de fiets om het afval mee te nemen, dus je legt het naast de prullenbak.&lt;&lt;set $temperatuur to $temperatuur - 0.5&gt;&gt; Je gaat naar [[huis.|Huis8][$data_plastic to &quot;prullenbak&quot;]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/linkappend&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Park5" tags="" position="1663,553" size="100,100">&lt;&lt;say $username $pfp&gt;&gt;Je moet je afval niet laten liggen.&lt;&lt;/say&gt;&gt;
-&lt;&lt;timed 1500ms&gt;&gt;&lt;&lt;vriend&gt;&gt;Daar zijn toch mensen voor die het opruimen. En we zijn ook niet de enige die afval actherlaten.&lt;&lt;/vriend&gt;&gt;
+&lt;&lt;timed 1500ms&gt;&gt;&lt;&lt;vriend&gt;&gt;Daar zijn toch mensen voor die het opruimen. En we zijn ook niet de enige die afval achterlaten.&lt;&lt;/vriend&gt;&gt;
 Wat doe je nu?
 &lt;&lt;actions [[Leg uit waarom je afval moet opruimen.|Park7]] [[Ruim het zelf alsnog op.|Park4]] [[Laat het liggen.|Park6][$data_plastic to &quot;niks&quot;]]&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Park6" tags="" position="1885,525" size="100,100">Je laat het afval liggen en gaat naar [[huis.|Huis8]]</tw-passagedata><tw-passagedata pid="59" name="Park7" tags="" position="1655,699" size="100,100">&lt;&lt;say $username $pfp&gt;&gt; Het is slecht voor het milieu om afval te laten liggen, zeker plastic afval. Ook voor de dieren in het park is het schadelijk. Het is ook niet zoveel moeite om je afval op te ruimen.&lt;&lt;/say&gt;&gt;
 &lt;&lt;timed 2000ms&gt;&gt;&lt;&lt;vriend&gt;&gt;Je hebt wel gelijk. Ik zal het opruimen.&lt;&lt;/vriend&gt;&gt;&lt;&lt;set $temperatuur to $temperatuur - 1&gt;&gt;
-De prullenbakken in het park zitten vol, dus je vriend doet het afval in zijn tas om het thuis weg te gooien. Jullie gaan naar [[huis.|Huis8][$data_plastic to &quot;vriend&quot;]]&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Startscherm" tags="" position="127,0" size="100,100">Leuk dat je spel Climate Crossroads gaat spelen. Het spel speelt zich af in 2022&lt;&lt;if $personal is true&gt;&gt;in Nijmegen&lt;&lt;/if&gt;&gt;, waarin je keuzes kan maken die invloed hebben op het klimaat. Je kunt de gevolgen van keuzes zien door de temperatuur in 2050. Jouw doel is om de temperatuur zo laag mogelijk te krijgen. 
-
+De prullenbakken in het park zitten vol, dus je vriend doet het afval in zijn tas om het thuis weg te gooien. Jullie gaan naar [[huis.|Huis8][$data_plastic to &quot;vriend&quot;]]&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Startscherm" tags="" position="127,0" size="100,100">Leuk dat je spel Climate Crossroads gaat spelen. Het spel speelt zich af in 2022&lt;&lt;if $personal is true&gt;&gt; in Nijmegen&lt;&lt;/if&gt;&gt;, waarin je keuzes kan maken die invloed hebben op het klimaat. Je kunt de gevolgen van keuzes zien door de temperatuur in 2050. Jouw doel is om de temperatuur zo laag mogelijk te krijgen. &lt;&lt;set $userID to &quot;1000&quot;&gt;&gt;
+[[Laten we beginnen.|Vergroening]] 
+&lt;&lt;if 1 == 0&gt;&gt;
 &lt;div id=&quot;userID&quot;&gt;Wat is je userID?
 &lt;&lt;textbox &quot;$userID&quot; 1 autofocus&gt;&gt;
 &lt;&lt;button &quot;Bevestig&quot;&gt;&gt;
 
-&lt;&lt;replace &quot;#userID&quot;&gt;&gt;[[Laten we beginnen.|Vergroening]]&lt;&lt;/replace&gt;&gt;
+&lt;&lt;replace &quot;#userID&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;
 &lt;&lt;/button&gt;&gt;&lt;span id=&quot;textbox-error&quot;&gt;&lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="61" name="Beleg" tags="" position="1080,543" size="100,100">Je budget is €$budget.
+&lt;/div&gt;&lt;&lt;/if&gt;&gt;
+
+</tw-passagedata><tw-passagedata pid="61" name="Beleg" tags="" position="1079,545" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0.
 Welk beleg wil je?
 &lt;a data-passage=&quot;Drinken&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.4;$data_beleg to &#39;ham&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/8b065001-caa7-426b-9369-d11ab54eee8d.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.50
 &lt;a data-passage=&quot;Drinken&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp - 0.1;$data_beleg to &#39;hummus&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/579248ff-6652-47d9-82d7-640feffa0707.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.00
-&lt;a data-passage=&quot;Drinken&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.3;$data_beleg to &#39;kaas&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/3668d181-0147-4074-8c24-b861ec17688f.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;]
-&lt;/a&gt;€2.50</tw-passagedata><tw-passagedata pid="62" name="Drinken" tags="" position="1076,428" size="100,100">Je budget is €$budget.
+&lt;a data-passage=&quot;Drinken&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.3;$data_beleg to &#39;kaas&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/3668d181-0147-4074-8c24-b861ec17688f.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;/a&gt;€2.50</tw-passagedata><tw-passagedata pid="62" name="Drinken" tags="" position="1076,428" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0.
 Welk drinken wil je?
-&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1.5; $voedsel_temp to $voedsel_temp - 0.1;$data_drink to &#39;glas&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/a937dcd5-0e42-49b3-a939-8150ab873494.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp - 0.1;$data_drink to &#39;glas&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/a937dcd5-0e42-49b3-a939-8150ab873494.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€1.50
-&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1.5; $voedsel_temp to $voedsel_temp + 0.2;$data_drink to &#39;blik&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/e77b0043-dfa9-489d-bb2e-6b9eb0d09a60.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp + 0.2;$data_drink to &#39;blik&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/e77b0043-dfa9-489d-bb2e-6b9eb0d09a60.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€1.50
-&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp + 0.1&quot;;$data_drink to &#39;plastic&#39;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/e10b92cd-393d-4e9a-9dab-b971b70c4666.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
-&lt;/a&gt;€2.00</tw-passagedata><tw-passagedata pid="63" name="Snack" tags="" position="1073,317" size="100,100">&lt;&lt;if $budget &lt; 2&gt;&gt;Je hebt geen geld meer voor een snack. [[Ga naar het park|Park2][$snack to false]].&lt;&lt;else&gt;&gt;Je budget is €$budget. 
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp + 0.1;$data_drink to &#39;plastic&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/e10b92cd-393d-4e9a-9dab-b971b70c4666.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;/a&gt;€2.00</tw-passagedata><tw-passagedata pid="63" name="Snack" tags="" position="1073,317" size="100,100">&lt;&lt;if $budget &lt; 2&gt;&gt;Je hebt geen geld meer voor een snack. [[Ga naar het park|Park2][$snack to false]].&lt;&lt;else&gt;&gt;Je budget is €&lt;&lt;print $budget&gt;&gt;0. 
 Wil je nog een snack?
 &lt;&lt;if $budget &gt;= 2.5&gt;&gt;&lt;a data-passage=&quot;Park2&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.1; $snack to true; $data_snack to &#39;banaan&#39;&quot;&gt;&lt;img src=&quot;https://imagestoreretrieval.aspos.nl/Product/Front/201016/ec39990d-39ab-4fe7-be2b-62983acd18d0.jpg?w=359&amp;h=477&quot; style=&quot;max-height: 300px&quot;&gt;&lt;/a&gt;
 €2.50&lt;&lt;else&gt;&gt;&lt;div class=&quot;smaller&quot;&gt;&lt;span id=&quot;banaan&quot;&gt;&lt;&lt;link [img[https://imagestoreretrieval.aspos.nl/Product/Front/201016/ec39990d-39ab-4fe7-be2b-62983acd18d0.jpg?w=359&amp;h=477]]&gt;&gt;
@@ -814,21 +816,21 @@ Wil je nog een snack?
 	&lt;&lt;replace &quot;#popcorn&quot; t8n&gt;&gt;Daar heb je geen geld meer voor.&lt;&lt;/replace&gt;&gt;&lt;/div&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 	
 
-</tw-passagedata><tw-passagedata pid="64" name="Beleg2" tags="" position="953,546" size="100,100">Je budget is €$budget.
+</tw-passagedata><tw-passagedata pid="64" name="Beleg2" tags="" position="953,546" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0.
 Welk beleg wil je?
 &lt;a data-passage=&quot;Drinken2&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp + 0.4;$data_beleg to &#39;ham&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239383236333237?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.00
 &lt;a data-passage=&quot;Drinken2&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp - 0.1;$data_beleg to &#39;hummus&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_434d50313236393238?revLabel=4&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€1.50
 &lt;a data-passage=&quot;Drinken2&quot; data-setter=&quot;$budget to $budget - 2.5;$voedsel_temp to $voedsel_temp + 0.3;$data_beleg to &#39;kaas&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239353833313436?revLabel=2&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
-&lt;/a&gt;€2.00</tw-passagedata><tw-passagedata pid="65" name="Drinken2" tags="" position="957,429" size="100,100">Je budget is €$budget.
+&lt;/a&gt;€2.00</tw-passagedata><tw-passagedata pid="65" name="Drinken2" tags="" position="957,429" size="100,100">Je budget is €&lt;&lt;print $budget&gt;&gt;0.
 Welk drinken wil je?
-&lt;a data-passage=&quot;Snack2&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp + 0.2&quot;;$data_drink to &#39;blik&#39;&gt;&lt;img src=&quot;https://www.compliment.nl/wp-content/uploads/2018/08/Coca-Cola-light-blik-%E2%80%93-24-x-33-cl-1.png&quot; style=&quot;max-height: 300px&quot;&gt;
-&lt;/a&gt;€1.50
-&lt;a data-passage=&quot;Snack2&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp - 0.1&quot;;$data_drink to &#39;fles&#39;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239363438323836?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
-&lt;/a&gt;€1.50
-&lt;a data-passage=&quot;Snack2&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp + 0.1&quot;;$data_drink to &#39;plastic&#39;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_434d50303033383637?revLabel=8&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
-&lt;/a&gt;€2.00</tw-passagedata><tw-passagedata pid="66" name="Snack2" tags="" position="956,318" size="100,100">&lt;&lt;if $budget &lt; 1.5&gt;&gt;Je hebt geen geld meer voor een snack. [[Ga naar het park|Park2][$snack to false]].&lt;&lt;else&gt;&gt;Je budget is €$budget. 
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1;$voedsel_temp to $voedsel_temp - 0.1;$data_drink to &#39;blik&#39;&quot;&gt;&lt;img src=&quot;https://www.compliment.nl/wp-content/uploads/2018/08/Coca-Cola-light-blik-%E2%80%93-24-x-33-cl-1.png&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;/a&gt;€1.00
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1;$voedsel_temp to $voedsel_temp + 0.2;$data_drink to &#39;glas&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239363438323836?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;/a&gt;€1.00
+&lt;a data-passage=&quot;Snack&quot; data-setter=&quot;$budget to $budget - 1.5;$voedsel_temp to $voedsel_temp + 0.1;$data_drink to &#39;plastic&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_434d50303033383637?revLabel=8&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
+&lt;/a&gt;€1.50</tw-passagedata><tw-passagedata pid="66" name="Snack2" tags="" position="956,318" size="100,100">&lt;&lt;if $budget &lt; 1.5&gt;&gt;Je hebt geen geld meer voor een snack. [[Ga naar het park|Park2][$snack to false]].&lt;&lt;else&gt;&gt;Je budget is €&lt;&lt;print $budget&gt;&gt;0. 
 Wil je nog een snack?
 &lt;&lt;if $budget &gt;= 2.0&gt;&gt;&lt;a data-passage=&quot;Park2&quot; data-setter=&quot;$budget to $budget - 2;$voedsel_temp to $voedsel_temp + 0.1; $snack to true; $data_snack to &#39;banaan&#39;&quot;&gt;&lt;img src=&quot;https://static.ah.nl/dam/product/AHI_43545239383031373834?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary&quot; style=&quot;max-height: 300px&quot;&gt;
 &lt;/a&gt;€2.00&lt;&lt;else&gt;&gt;&lt;div class=&quot;smaller&quot;&gt;&lt;span id=&quot;banaan&quot;&gt;&lt;&lt;link [img[https://static.ah.nl/dam/product/AHI_43545239383031373834?revLabel=1&amp;rendition=800x800_JPG_Q90&amp;fileType=binary]]&gt;&gt;
