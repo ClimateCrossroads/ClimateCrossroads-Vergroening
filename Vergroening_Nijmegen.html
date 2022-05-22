@@ -260,7 +260,7 @@ class JavascriptDataDownloader {
         a.href = URL.createObjectURL(new Blob([JSON.stringify(this.data, null, 2)], {
             type: type_of
         }));
-				const filename = "data/data_" + this.data.UserID + ".txt";
+				const filename = "data_" + this.data.UserID + ".txt";
         a.setAttribute("download", filename);
         body.appendChild(a);
         a.click();
@@ -306,7 +306,7 @@ new JavascriptDataDownloader(data).download();
 &lt;&lt;set $data_drink to &#39;&#39;&gt;&gt;
 &lt;&lt;set $data_snack to &#39;&#39;&gt;&gt;
 &lt;&lt;set $data_plastic to &#39;&#39;&gt;&gt;
-&lt;&lt;set $soorten to &#39;&#39;&gt;&gt;
+&lt;&lt;set $soorten to 0&gt;&gt;
 
 &lt;&lt;character &#39;buurvrouw&#39; &quot;http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-light-skin-tone.png&quot;&gt;&gt;
 &lt;&lt;character &#39;medewerker&#39; &quot;https://images.emojiterra.com/google/android-11/512px/1f468-1f33e.png&quot;&gt;&gt;
