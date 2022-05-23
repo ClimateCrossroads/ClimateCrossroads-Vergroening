@@ -271,14 +271,17 @@ class JavascriptDataDownloader {
 window.exportData = function(data){
 new JavascriptDataDownloader(data).download();
 };
-</script><tw-passagedata pid="1" name="Vergroening" tags="" position="116,129" size="100,100">Wat is je naam?
+</script><tw-passagedata pid="1" name="Vergroening" tags="" position="116,129" size="100,100">&lt;div id=&quot;naam&quot;&gt;Wat is je naam?
 &lt;&lt;textbox &quot;$username&quot; &quot;Naam&quot; autofocus&gt;&gt;
-
-[[Begin verhaal|Huis]]
+&lt;&lt;button &quot;Bevestig&quot;&gt;&gt;&lt;&lt;replace &quot;#naam&quot;&gt;&gt;Kies je avatar.
+&lt;a data-passage=&quot;Huis&quot; data-setter=&quot;$pfp to &#39;https://www.kindpng.com/picc/m/169-1694718_cute-bumble-bee-clipart-bumble-bee-cartoon-png.png&#39;&quot;&gt;&lt;img src=&quot;https://www.kindpng.com/picc/m/169-1694718_cute-bumble-bee-clipart-bumble-bee-cartoon-png.png&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;&lt;/a&gt; &lt;a data-passage=&quot;Huis&quot; data-setter=&quot;$pfp to &#39;https://www.kindpng.com/picc/m/14-144888_clip-art-cartoon-trees-cartoon-tree-gif-png.png&#39;&quot;&gt;&lt;img src=&quot;https://www.kindpng.com/picc/m/14-144888_clip-art-cartoon-trees-cartoon-tree-gif-png.png&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;&lt;/a&gt; &lt;a data-passage=&quot;Huis&quot; data-setter=&quot;$pfp to &#39;https://i.pinimg.com/736x/ac/6c/df/ac6cdf0b7f26d36cc1b329442a3014c5.jpg&#39;&quot;&gt;&lt;img src=&quot;https://i.pinimg.com/736x/ac/6c/df/ac6cdf0b7f26d36cc1b329442a3014c5.jpg&quot; width=&quot;200px&quot; height=&quot;200px&quot;&gt;&lt;/a&gt;
+&lt;&lt;/replace&gt;&gt;
+&lt;&lt;/button&gt;&gt;&lt;span id=&quot;textbox-error&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
 </tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="302,0" size="100,100">&lt;&lt;set $personal to false&gt;&gt;
 &lt;&lt;set $temperatuur to 50.0&gt;&gt;
 &lt;&lt;set $boxClass to &#39;&#39;&gt;&gt;
-&lt;&lt;set $pfp to &quot;https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0a4481f-e801-4cb7-9daa-17cdae32cc89/icon-design-21-opt.png&quot;&gt;&gt;
+&lt;&lt;set $pfp to &quot;https://economictimes.indiatimes.com/thumb/height-450,width-600,imgsize-90851,msid-67969364/bee.jpg?from=mdr&quot;&gt;&gt;
 &lt;&lt;set $soorten to 0&gt;&gt;
 &lt;&lt;set $username to &quot;Sigur&quot;&gt;&gt;
 
@@ -309,8 +312,8 @@ new JavascriptDataDownloader(data).download();
 &lt;&lt;set $soorten to 0&gt;&gt;
 
 &lt;&lt;character &#39;buurvrouw&#39; &quot;http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/woman-light-skin-tone.png&quot;&gt;&gt;
-&lt;&lt;character &#39;medewerker&#39; &quot;https://images.emojiterra.com/google/android-11/512px/1f468-1f33e.png&quot;&gt;&gt;
-&lt;&lt;character &#39;vriend&#39; &quot;https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/d0a4481f-e801-4cb7-9daa-17cdae32cc89/icon-design-21-opt.png&quot;&gt;&gt;
+&lt;&lt;character &#39;medewerker&#39; &quot;http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/man-farmer.png&quot;&gt;&gt;
+&lt;&lt;character &#39;vriend&#39; &quot;http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/blond-haired-woman.png&quot;&gt;&gt;
 
 &lt;&lt;cacheaudio &quot;Markt&quot; &quot;Muziek/2022_Markt.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;Supermarkt&quot; &quot;Muziek/2022_Supermarkt.mp3&quot;&gt;&gt;
@@ -320,7 +323,6 @@ new JavascriptDataDownloader(data).download();
 &lt;&lt;cacheaudio &quot;Optimaal&quot; &quot;Muziek/2050_optimale verbetering.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;Intro&quot; &quot;Muziek/Intro.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;Park&quot; &quot;Muziek/2022_Treinstation.mp3&quot;&gt;&gt;
-
 
 
 
@@ -447,6 +449,8 @@ Wat wil je doen?
 &lt;map name=&quot;inh&quot;&gt;&lt;area alt=&quot;&quot; data-passage=&quot;InheemsStruik&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;exo&quot;&gt;&lt;area data-passage=&quot;ExotischStruik&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;exo2&quot;&gt;&lt;area data-passage=&quot;ExotischStruik2&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
+&lt;ul&gt;&lt;li&gt;Oleander&lt;/li&gt;&lt;li&gt;Vlierbloesem&lt;/li&gt;&lt;li&gt;Agave&lt;/li&gt;&lt;/ul&gt;
+
 &lt;&lt;if visited(&quot;ExotischStruik&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo&quot; src=&quot;https://www.directplant.nl/media/catalog/category/Nerium_oleander_125-150_1.jpg&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;InheemsStruik&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#inh&quot; src=&quot;https://www.halderberge.nl/sites/default/files/styles/profile/public/vlier.jpg?itok=j8VVWStE&amp;c=83b2a270f4d5a7c2b6b47c23dae34a13&quot; height=&quot;187.5&quot; width=&quot;200&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;ExotischStruik2&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo2&quot; src=&quot;https://www.directplant.nl/media/catalog/product/2/0/20070701184809_3.jpg?optimize=medium&amp;fit=crop&amp;height=280&amp;width=336&quot; alt=&quot;350 x 150 pic&quot; width=&quot;200&quot; height=&quot;187.5&quot;&gt;&lt;&lt;/if&gt;&gt;
@@ -457,9 +461,11 @@ Wat wil je doen?
 &lt;map name=&quot;inh&quot;&gt;&lt;area data-passage=&quot;Inheems&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;exo&quot;&gt;&lt;area data-passage=&quot;Exotisch&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;mix&quot;&gt;&lt;area data-passage=&quot;Mix&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
-&lt;&lt;if visited(&quot;Inheems&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#inh&quot; src=&quot;https://www.vakbladdehovenier.nl/upload/berichten/36261_groot.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
-&lt;&lt;if visited(&quot;Exotisch&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo&quot; src=&quot;https://kopenenklussen.nl/wp-content/uploads/2019/10/Tuincentrum.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
-&lt;&lt;if visited(&quot;Mix&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#mix&quot; src=&quot;https://cdn.decarlton.nl/files/images/planten%20tuincentrum%20de%20Carlton%20nabij%20Den%20Haag.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;
+&lt;ul&gt;&lt;li&gt;Schildzaad&lt;/li&gt;&lt;li&gt;Hibicus&lt;/li&gt;&lt;li&gt;Tulpen&lt;/li&gt;&lt;/ul&gt;
+
+&lt;&lt;if visited(&quot;Inheems&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#inh&quot; src=&quot;https://gardenseedsmarket.com/images/thumbnails/320/320/detailed/60/smagliczka-nadmorska-biala.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if visited(&quot;Exotisch&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo&quot; src=&quot;https://dkpo4ygqb6rh6.cloudfront.net/APPELTERN_NL/imageresized/83380/e31246785bf10cfad7b8274be5cebfef/440_590_80_fixedjpg/hibiscus_syriacus_marina_altheastruik_tuinhibiscus.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
+&lt;&lt;if visited(&quot;Mix&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#mix&quot; src=&quot;https://cdn.webshopapp.com/shops/40795/files/391504729/350x280x3/tulipa-blue-diamond.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;
 
 [[Terug.|Winkel2]]</tw-passagedata><tw-passagedata pid="29" name="Winkel3" tags="" position="240,1526" size="100,100">&lt;div id=&quot;medewerker&quot;&gt;
 Wat wil je vragen aan de medewerker?
@@ -476,15 +482,17 @@ Wat wil je vragen aan de medewerker?
 &lt;map name=&quot;inh&quot;&gt;&lt;area data-passage=&quot;InheemsBoom&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;inh2&quot;&gt;&lt;area data-passage=&quot;InheemsBoom2&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;exo&quot;&gt;&lt;area data-passage=&quot;ExotischBoom&quot; shape=&quot;rect&quot; coords=&quot;0,0,250,200&quot;&gt;&lt;/map&gt;\
+&lt;ul&gt;&lt;li&gt;Japanse Esdoorn&lt;/li&gt;&lt;li&gt;Knotwilg&lt;/li&gt;&lt;li&gt;Tupeloboom&lt;/li&gt;&lt;/ul&gt;
+
 &lt;&lt;if visited(&quot;ExotischBoom&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#exo&quot; src=&quot;https://www.vdberk.nl/media/cache/tree_search/media/3390/acer_palmatum_bloodgood.jpg&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;InheemsBoom&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#inh&quot; src=&quot;https://betuwebomen.nl/wp-content/uploads/2019/08/salix_alba_knot_1.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;InheemsBoom2&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#inh2&quot; src=&quot;https://i.pinimg.com/originals/49/1e/48/491e48d75f260f805c99ccd1f254b092.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;187.5&quot;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 
 [[Terug.|Winkel2]]</tw-passagedata><tw-passagedata pid="31" name="WinkelOverig" tags="" position="485,1524" size="100,100">Welke producten wil je kopen?
-
 &lt;map name=&quot;bij&quot;&gt;&lt;area data-passage=&quot;Bijenhotel&quot; shape=&quot;rect&quot; coords=&quot;0,0,300,300&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;lamp&quot;&gt;&lt;area data-passage=&quot;Lamp&quot; shape=&quot;rect&quot; coords=&quot;0,0,300,300&quot;&gt;&lt;/map&gt;\
 &lt;map name=&quot;vogel&quot;&gt;&lt;area data-passage=&quot;Vogelhuisje&quot; shape=&quot;rect&quot; coords=&quot;0,0,300,300&quot;&gt;&lt;/map&gt;\
+&lt;ul&gt;&lt;li&gt;Bijenhotel&lt;/li&gt;&lt;li&gt;Tuinlamp&lt;/li&gt;&lt;li&gt;Vogelhuisje&lt;/li&gt;&lt;/ul&gt;
 
 &lt;&lt;if visited(&quot;Bijenhotel&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#bij&quot; src=&quot;https://bijenhotelkopen.nl/wp-content/uploads/2018/10/BeeLittle03.jpg&quot; alt=&quot;350 x 150 pic&quot; width=&quot;250&quot;&gt;&lt;&lt;/if&gt;&gt;\
 &lt;&lt;if visited(&quot;Lamp&quot;) == 0&gt;&gt;&lt;img usemap=&quot;#lamp&quot; src=&quot;https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSUZA_L5qYYXX2h-MCgtMsWdlHP_9TjTQwFm7hPbLnF-6J6yf8elhZxYGnJmAKiMcv2aoRXlqdD3HPHpSTKKHAuRtUra4iEtWUivEfVk9Za&amp;usqp=CAE&quot; alt=&quot;350 x 150 pic&quot; width=&quot;260&quot;&gt;&lt;&lt;/if&gt;&gt;\
@@ -799,7 +807,7 @@ De prullenbakken in het park zitten vol, dus je vriend doet het afval in zijn ta
 
 &lt;&lt;button &quot;Bevestig&quot;&gt;&gt;
 
-&lt;&lt;replace &quot;#userID&quot;&gt;&gt;[[Laten we beginnen.|Vergroening]] &lt;&lt;/replace&gt;&gt;
+&lt;&lt;replace &quot;#userID&quot;&gt;&gt;[[Ga verder.|Vergroening]] &lt;&lt;/replace&gt;&gt;
 &lt;&lt;/button&gt;&gt;&lt;span id=&quot;textbox-error&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;
 
